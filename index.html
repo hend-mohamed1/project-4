@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>✧Glowin✧</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    
+  body {
+  background: linear-gradient(135deg, #fff9f9, #fdf5f8);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+
+body::after {
+  content: "❀ ❁ ❀";
+  display: block;
+  text-align: center;
+  color: #ffb6c1;
+  font-size: 22px;
+  letter-spacing: 10px;
+  margin-top: 40px;
+  position: relative;
+  bottom: 0;
+  padding: 15px 0;
+}
+
+
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(255, 133, 162, 0.2);
+  padding: 1rem 1rem; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  font-family: 'Dancing Script', cursive;
+  border-bottom: 2px dashed #ffc2cf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.navbar::after {
+    content: "♡♡♡";
+  display: block;
+  text-align: center;
+  color: #ff85a2;
+  font-size: 18px;
+  margin-top: 8px;
+  letter-spacing: 6px;
+}
+.navbar.logged-in::after {
+  content: none;
+}
+
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #c59d5f;
+  font-family: 'Great Vibes', cursive;
+  margin-left: 15px;
+}
+
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff0f5;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #ffd6e0;
+  transition: all 0.25s ease;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.search-box::before {
+  content: "✿";
+  position: absolute;
+  left: 10px;
+  top: -14px;
+  color: #ff85a2;
+  font-size: 14px;
+}
+
+.search-box select,
+.search-box input,
+.search-box button {
+  height: 38px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.search-box select {
+  border: 1px solid #ffc2cf;
+  padding: 5px 28px 5px 8px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23ff85a2' height='12' viewBox='0 0 20 20' width='12'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  appearance: none;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+}
+
+
+.search-box input {
+  border: 1px solid #ffc2cf;
+  padding-left: 10px;
+  width: 220px;
+  background: #fff;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+}
+
+
+.search-box button {
+  background-color: #ff85a2;
+  color: #fff;
+  border: none;
+  padding: 0 18px;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  font-family: 'Nunito', sans-serif;
+  border-radius: 20px;
+}
+
+.search-box button:hover {
+  background-color: #e04a64;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(224, 74, 100, 0.25);
+}
+
+.search-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 133, 162, 0.15);
+}
+
+
+#loginBtn {
+  border: 2px solid #ff85a2;
+  color: #ff85a2;
+  background: transparent;
+  transition: all 0.25s ease;
+  font-weight: 500;
+  padding: 6px 14px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+}
+
+#loginBtn:hover {
+  background-color: #ff85a2;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 133, 162, 0.3);
+}
+
+
+#registerBtn {
+  border: 2px solid #ffb6c1;
+  color: #ffb6c1;
+  background: transparent;
+  transition: all 0.25s ease;
+  font-weight: 500;
+  padding: 6px 14px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+}
+
+#registerBtn:hover {
+  background-color: #ffb6c1;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 182, 193, 0.3);
+}
+
+
+.cart-icon {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #e04a64;
+  transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+  color: #ff85a2;
+}
+
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  background: #ff85a2;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.product-card {
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 6px rgba(255, 133, 162, 0.15);
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 15px;
+  height: 340px;
+  max-width: 230px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Parisienne', cursive;
+  position: relative;
+}
+
+.product-card::before {
+  content: "♡";
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  color: #ffc2cf;
+  font-size: 18px;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  border-color: #ff85a2;
+  box-shadow: 0 6px 16px rgba(255, 133, 162, 0.25);
+}
+
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+
+.add-cart {
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.add-cart:hover {
+  background-color: #e04a64;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255,133,162,0.3);
+}
+
+
+.heart {
+  font-size: 25px;
+  cursor: pointer;
+  color: #ffb6c1;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.heart.active {
+  color: #e04a64;
+  transform: scale(1.2);
+}
+
+
+.btn-dropdown {
+  background-color: #fff !important;
+  color: #ff85a2 !important;
+  border: 1px solid #ffc2cf !important;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  transition: all 0.25s ease;
+  font-family: "Manrope", sans-serif;
+}
+
+.btn-dropdown:hover,
+.btn-dropdown:focus,
+.show > .btn-dropdown.dropdown-toggle {
+  background-color: #ff85a2 !important;
+  color: #fff !important;
+  border-color: #ff85a2 !important;
+  box-shadow: 0 8px 16px rgba(255,133,162,0.3);
+}
+
+
+.dropdown-menu {
+  border-radius: 12px;
+  border: 1px solid #ffe4ec;
+  box-shadow: 0 8px 24px rgba(255, 133, 162, 0.15);
+  animation: dropdownFade 0.25s ease;
+  font-family: "Manrope", sans-serif;
+  background: #fff8fb;
+}
+
+.dropdown-menu::before {
+  content: "⋆｡°✩";
+  display: block;
+  text-align: center;
+  color: #ff85a2;
+  font-size: 14px;
+}
+
+
+.dropdown-item {
+  color: #b84e72;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  padding: 10px 16px;
+  transition: all 0.25s ease;
+}
+
+
+.dropdown-item:hover {
+  background-color: #ffe6ec; 
+  color: #a13e60; 
+  border-radius: 8px;
+}
+
+
+
+.cart-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  width: 250px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(255,133,162,0.25);
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  z-index: 999;
+  border: 1px dashed #ffc2cf;
+}
+
+.cart-item {
+  background: #fff0f5;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.cart-item button {
+  border: 1px solid #ffc2cf;
+  background: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.cart-item button:hover {
+  background-color: #ff85a2;
+  color: #fff;
+  border-color: #ff85a2;
+}
+
+.view-all {
+  color: #ff85a2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-all:hover {
+  color: #e04a64;
+  text-decoration: underline;
+}
+
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.navbar-brand:hover {
+  color: #ff85a2 !important;
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(255,133,162,0.5);
+}
+
+.navbar-brand::after {
+  content: "❀";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  color: #ffb6c1;
+  font-size: 20px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover::after {
+  transform: rotate(15deg) scale(1.3);
+  opacity: 1;
+}
+ 
+.product-card h5 {
+  color: #6e6e6e; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.product-card p {
+  color: #9a9a9a; 
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin: 4px 0;
+  letter-spacing: 0.3px;
+}
+
+select {
+  background-color: #fff;            
+  border: 1px solid #ffc2cf;        
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #b84e72;                   
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+
+select:focus {
+  border-color: #ff85a2;             
+  box-shadow: 0 0 8px rgba(255,133,162,0.4);
+}
+
+
+option {
+  background-color: #fff9fa;         
+  color: #b84e72;                   
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  padding: 8px;
+}
+
+
+option:hover,
+option:focus {
+  background-color: #ffe6ec;         
+  color: #a13e60;                    
+}
+
+.search-box input {
+  border: 1px solid #ffb6c1; 
+  background-color: #fff8fb; 
+  color: #b84e72; 
+  padding-left: 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #ff85a2; 
+  box-shadow: 0 0 8px rgba(255,133,162,0.4);
+  background-color: #fff;
+}
+
+
+.search-box button {
+  background-color: #ff85a2; 
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-box button:hover {
+  background-color: #e04a64; 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(224, 74, 100, 0.25);
+}
+
+.hello-user {
+  color: #ff85a2; 
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.hello-user:hover {
+  color: #ff5c8a; 
+}
+.cart-item span {
+  display: inline-block;
+  min-width: 20px;
+  text-align: center;
+  color: #b84e72;
+  font-weight: 600;
+}
+  
+.cart-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 40px;
+  width: 260px;
+  background: #fff8fb; 
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(255,133,162,0.25);
+  display: none;
+  flex-direction: column;
+  padding: 12px;
+  z-index: 999;
+  border: 2px dashed #ffb6c1;
+  transition: all 0.3s ease;
+}
+
+.cart-dropdown:hover {
+  box-shadow: 0 8px 22px rgba(255,133,162,0.3);
+  transform: translateY(-2px);
+}
+
+.cart-item {
+  background: #ffeef3; 
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #ffd6e0;
+}
+
+.cart-item strong {
+  color: #d45a7c;
+}
+
+.cart-item small {
+  color: #b84e72;
+}
+
+.cart-item button {
+  border: 1px solid #ffb6c1;
+  background: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ff85a2;
+  transition: all 0.2s ease;
+}
+
+.cart-item button:hover {
+  background-color: #ff85a2;
+  color: #fff;
+  border-color: #ff85a2;
+}
+
+#cart-total {
+  text-align: center;
+  font-weight: 600;
+  color: #e04a64;
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cart-footer .view-all {
+  color: #ff85a2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cart-footer .view-all:hover {
+  color: #e04a64;
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+ 
+
+
+
+<nav class="navbar d-flex align-items-center justify-content-between">
+  
+  <a class="navbar-brand ms-2 fw-bold fs-4" 
+     href="#" 
+     style="
+       color: #c59d5f;
+       font-family: 'Great Vibes', cursive;
+       letter-spacing: 2px;
+       text-shadow: 1px 1px 4px rgba(197,157,95,0.3);
+       position: relative;
+       transition: all 0.4s ease;
+       display: inline-block;
+     ">
+     ✧Glowin✧
+  </a>
+
+
+  <div class="search-box mx-auto">
+    <div class="dropdown search-dropdown">
+      <button class="btn btn-dropdown" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Search by Product Name <i class="bi bi-caret-down-fill"></i>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#" onclick="setSearchMode('name')">Search by Product Name</a></li>
+        <li><a class="dropdown-item" href="#" onclick="setSearchMode('category')">Search by Category</a></li>
+      </ul>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchProducts()">
+    <button><i class="bi bi-search"></i> Search</button>
+  </div>
+
+ 
+  <div id="userSection" class="buttons me-2">
+    <button id="loginBtn" class="btn btn-outline-success me-2">Login</button>
+    <button id="registerBtn" class="btn btn-outline-success">Register</button>
+  </div>
+
+  
+  <div id="cartDropdown" class="cart-dropdown">
+    <div class="cart-items"></div>
+
+    <div id="cart-total">
+      Total: $0
+    </div>
+
+    <div class="cart-footer text-center">
+      <button class="btn btn-link view-all">View All Products</button>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <div class="row g-4 justify-content-center">
+
+   
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Silver Necklace" data-price="400">
+        <img src="../project 4/images/img10.png" alt="Silver Necklace">
+        <h5>Watermelon Primer</h5>
+        <p>Price: $400</p>
+        <p>Category: Primer</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Gold Necklace" data-price="150">
+        <img src="../project 4/images/img11.png" alt="Gold Necklace">
+        <h5>Peach Serum</h5>
+        <p>Price: $150</p>
+        <p>Category: Serum</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Rose Bracelet" data-price="200">
+        <img src="../project 4/images/img1.jfif" alt="Rose Bracelet">
+        <h5>Peach Moisturizer</h5>
+        <p>Price: $200</p>
+        <p>Category: Moisturize</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Diamond Ring" data-price="500">
+        <img src="../project 4/images/img7.png" alt="Diamond Ring">
+        <h5>Rose Serum</h5>
+        <p>Price: $500</p>
+        <p>Category: Serum</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Luxury Earrings" data-price="250">
+        <img src="../project 4/images/imgc.png" alt="Luxury Earrings">
+        <h5>Vitamin C</h5>
+        <p>Price: $250</p>
+        <p>Category: Vitamin C</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Gold Bracelet" data-price="180">
+        <img src="../project 4/images/imgb.png" alt="Gold Bracelet">
+        <h5>Rose Foundation</h5>
+        <p>Price: $180</p>
+        <p>Category: Foundation</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Platinum Ring" data-price="600">
+        <img src="../project 4/images/imga.png" alt="Platinum Ring">
+        <h5>Rose Shampoo</h5>
+        <p>Price: $600</p>
+        <p>Category: Shampoo</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Crystal Necklace" data-price="350">
+        <img src="../project 4/images/img8.png" alt="Crystal Necklace">
+        <h5>Rose Lotion</h5>
+        <p>Price: $350</p>
+        <p>Category: Lotion</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="product-card" data-name="Luxury Watch" data-price="800">
+        <img src="../project 4/images/img2.jfif" alt="Luxury Watch">
+        <h5>Whitening Cream</h5>
+        <p>Price: $800</p>
+        <p>Category: Cream</p>
+        <div>
+          <span class="heart">♥</span>
+          <button class="add-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+ 
+
+  
+  <script>
+    const userSection = document.getElementById("userSection");
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  function updateCartCount() {
+    const count = cartItems.length;
+    const countSpan = document.querySelector(".cart-count");
+    if (countSpan) countSpan.textContent = count;
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }
+
+  if (userData) {
+   
+    document.querySelector(".navbar").classList.add("logged-in");
+
+    userSection.innerHTML = `
+      <span class="hello-user">Hello, ${userData.firstName}</span>
+      <i class="bi bi-cart cart-icon">
+        <span class="cart-count">${cartItems.length}</span>
+      </i>
+      <button id="logoutBtn" class="btn btn-outline-danger ms-2">Logout</button>
+    `;
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("userData");
+      location.reload();
+    });
+  } else {
+    document.getElementById("loginBtn").onclick = () => window.location.href = "login.html";
+    document.getElementById("registerBtn").onclick = () => window.location.href = "register.html";
+  }
+
+  const isLoggedIn = !!userData;
+  const hearts = document.querySelectorAll(".heart");
+  const addButtons = document.querySelectorAll(".add-cart");
+
+  hearts.forEach(heart => {
+    const card = heart.closest(".product-card");
+    const name = card.dataset.name;
+
+    if (favorites.includes(name)) heart.classList.add("active");
+
+    heart.addEventListener("click", () => {
+      if (!isLoggedIn) return window.location.href = "login.html";
+      heart.classList.toggle("active");
+
+      if (heart.classList.contains("active")) {
+        favorites.push(name);
+      } else {
+        favorites = favorites.filter(item => item !== name);
+      }
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    });
+  });
+
+  addButtons.forEach(btn => {
+    const card = btn.closest(".product-card");
+    const name = card.dataset.name;
+    const price = parseFloat(card.dataset.price);
+
+    if (cartItems.some(item => item.name === name)) {
+      btn.textContent = "Remove from cart";
+      btn.style.backgroundColor = "#dc3545"; 
+    }
+
+    btn.addEventListener("click", () => {
+      if (!isLoggedIn) return window.location.href = "login.html";
+
+      const itemIndex = cartItems.findIndex(item => item.name === name);
+      if (itemIndex === -1) {
+        cartItems.push({ name, price, quantity: 1 });
+        btn.textContent = "Remove from cart";
+        btn.style.backgroundColor = "#dc3545"; 
+      } else {
+        cartItems.splice(itemIndex, 1);
+        btn.textContent = "Add to cart";
+        btn.style.backgroundColor = "#ff85a2"; 
+      }
+
+      updateCartCount();
+    });
+  });
+
+  
+  let searchMode = 'name';
+
+  function setSearchMode(mode) {
+    searchMode = mode;
+    const btn = document.getElementById('dropdownMenuButton');
+    if (mode === 'name') {
+      btn.innerHTML = 'Search by Product Name <i class="bi bi-caret-down-fill"></i>';
+    } else {
+      btn.innerHTML = 'Search by Category <i class="bi bi-caret-down-fill"></i>';
+    }
+  }
+
+  function searchProducts() {
+    const input = document.getElementById("searchInput").value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".product-card");
+    cards.forEach(card => {
+      const name = card.querySelector("h5").textContent.toLowerCase();
+      const category = card.querySelector("p:nth-of-type(2)").textContent.toLowerCase();
+      let match = false;
+
+      if (searchMode === "name") {
+        match = name.includes(input);
+      } else if (searchMode === "category") {
+        match = category.includes(input);
+      }
+
+      card.parentElement.style.display = match ? "block" : "none";
+    });
+  }
+
+ 
+  const cartIcon = document.querySelector(".cart-icon");
+  const cartDropdown = document.getElementById("cartDropdown");
+  const cartItemsContainer = document.querySelector(".cart-items");
+
+ 
+  cartIcon.addEventListener("click", () => {
+    cartDropdown.style.display = cartDropdown.style.display === "flex" ? "none" : "flex";
+    renderCartDropdown();
+  });
+
+  
+  function renderCartDropdown() {
+    cartItemsContainer.innerHTML = "";
+    if (cartItems.length === 0) {
+      cartItemsContainer.innerHTML = "<p style='text-align:center;color:#777;'>Cart is empty</p>";
+      document.getElementById("cart-total").textContent = "Total: $0";
+      return;
+    }
+
+    cartItems.forEach((item, index) => {
+      const itemTotal = item.price * (item.quantity || 1);
+      const div = document.createElement("div");
+      div.classList.add("cart-item");
+      div.innerHTML = `
+        <div>
+          <strong>${item.name}</strong><br>
+          <small>Price: $${itemTotal.toFixed(2)}</small>
+        </div>
+        <div>
+          <button onclick="updateQuantity(${index}, -1)">-</button>
+          <span>${item.quantity || 1}</span>
+          <button onclick="updateQuantity(${index}, 1)">+</button>
+        </div>
+      `;
+      cartItemsContainer.appendChild(div);
+    });
+
+    const totalPrice = cartItems.reduce(
+      (sum, item) => sum + item.price * (item.quantity || 1),
+      0
+    );
+    document.getElementById("cart-total").textContent = `Total: $${totalPrice.toFixed(2)}`;
+  }
+
+ 
+  function updateQuantity(index, change) {
+    if (!cartItems[index].quantity) cartItems[index].quantity = 1;
+    cartItems[index].quantity = Math.max(1, cartItems[index].quantity + change);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartDropdown();
+    updateCartCount();
+  }
+
+ 
+  document.querySelector(".view-all").addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
+
+  
+   
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
